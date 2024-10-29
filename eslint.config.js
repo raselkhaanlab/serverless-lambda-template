@@ -3,10 +3,9 @@ const prettierConfig = require("eslint-config-prettier");
 
 module.exports = [
   {
-    files: ["**/*.js", "**/*.jsx"],
+    files: ["**/*.js"],
     languageOptions: {
       ecmaVersion: 2021,
-      sourceType: "module", // If using ES modules
       globals: {
         require: "readonly",
         process: "readonly",
