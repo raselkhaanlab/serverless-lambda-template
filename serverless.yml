@@ -3,7 +3,8 @@ service: serverless-lambda-template # NOTE: update this with your service name
 frameworkVersion: "4"
 
 variablesResolutionMode: 20210326
-
+build:
+  esbuild: false
 custom:
   stage: ${opt:stage, self:provider.stage}
   settings:
