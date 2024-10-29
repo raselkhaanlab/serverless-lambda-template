@@ -16,10 +16,19 @@ custom:
     prod:
       STAGE: ${self:custom.stage}
       NODE_ENV: 'production'
+  webpack:
+    webpackConfig: "webpack.config.js"
+    includeModules: true
+  prune:
+    automatic: true
+    includeLayers: true
+    number: 5
 
 plugins:
   - serverless-plugin-tracing
   - serverless-offline
+  - serverless-webpack
+  - serverless-prune-plugin
 
 provider:
   name: aws
