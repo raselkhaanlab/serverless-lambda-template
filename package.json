@@ -88,6 +88,7 @@
     "jest-tobetype": "^1.2.3",
     "nodemon": "^3.1.7",
     "serverless": "^4.4.7",
+    "serverless-apigw-binary": "^0.4.4",
     "serverless-offline": "^14.3.3",
     "serverless-prune-plugin": "^2.1.0",
     "serverless-webpack": "^5.15.0",
