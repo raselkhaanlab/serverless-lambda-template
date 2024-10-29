@@ -1,0 +1,16 @@
+{
+  "generator-astro-sls": {
+    "name": "serverless-api-template",
+    "apibase": "handler",
+    "apiversion": "v1",
+    "version": "1.0.0",
+    "description": "Serverless api template",
+    "author": "Rasel khan",
+    "src": "src",
+    "last_endpoint": "hello",
+    "last_apidesc": "simple hello handler",
+    "last_method": "get",
+    "last_handlerType": "true",
+    "last_handlerrequire": "true"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "name": "serverless-lambda-template",
+  "version": "1.0.0",
+  "description": "This project generated using serverless node generator",
+  "author": "Rasel khan",
+  "main": "src/index.js",
+  "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=10",
+    "yarn": "*"
+  },
+  "scripts": {
+    "precommit": "npm run validate",
+    "dev": "nodemon --exec npx sls offline start --noTimeout --stage dev",
+    "deploy": "npx sls deploy",
+    "format": "prettier \"**/*.{js,cjs}\" --write --ignore-unknown",
+    "lint": "eslint --config eslint.config.js src/**/*.js",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "cross-env NODE_ENV=test jest --forceExit --detectOpenHandles --coverage --coverageDirectory=coverage",
+    "test:watch": "npm run test -- --watch",
+    "test:unit": "cross-env NODE_ENV=test jest --forceExit --detectOpenHandles --testPathPattern=\"(/src/.*)\\.(spec).js$\"",
+    "test:integration": "cross-env NODE_ENV=test jest --forceExit --detectOpenHandles --testPathPattern=\"(/src/.*)\\.(test).js$\"",
+    "validate": "npm run format && npm run lint",
+    "generate:handler":"npx yo astro-sls:handler",
+    "generate:middleware":"npx yo astro-sls:middleware",
+    "generate:service":"npx yo astro-sls:service",
+    "generate:util":"npx yo astro-sls:util"
+  },
+  "keywords": [
+    "serverless",
+    "node",
+    "node.js",
+    "es6",
+    "es7",
+    "es8",
+    "es2017",
+    "jest",
+    "eslint",
+    "REST",
+    "API",
+    "boilerplate",
+    "generator",
+    "starter project",
+    "aws"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn validate"
+    }
+  },
+  "_moduleAliases": {
+    "@app": "src",
+    "@api": "src/api",
+    "@config": "src/config",
+    "@middlewares": "src/middlewares",
+    "@services": "src/services",
+    "@utils": "src/utils"
+  },
+  "dependencies": {
+    "aws-xray-sdk": "^3.10.1",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "dotenv-safe": "^9.1.0",
+    "es-class": "^2.1.1",
+    "http-status": "^2.0.0",
+    "joi": "^17.13.3",
+    "lambda-log": "^3.1.0",
+    "lodash": "^4.17.21",
+    "middy": "^0.36.0",
+    "module-alias": "^2.2.3",
+    "node-sanitizer": "^1.0.5",
+    "serverless-plugin-tracing": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "aws-event-mocks": "^0.0.0",
+    "aws-sdk": "^2.1691.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "generator-astro-sls": "^2.0.3",
+    "husky": "^9.1.6",
+    "jest": "^29.7.0",
+    "jest-extended": "^4.0.2",
+    "jest-tobetype": "^1.2.3",
+    "nodemon": "^3.1.7",
+    "serverless": "^4.4.7",
+    "serverless-offline": "^14.3.3",
+    "yo": "^5.0.0"
+  },
+  "nyc": {
+    "include": "src",
+    "exclude": [
+      "**/*.spec.js",
+      "**/*.test.js",
+      "**/index.js"
+    ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@app(.*)$": "<rootDir>/src$1",
+      "^@api(.*)$": "<rootDir>/src/api$1",
+      "^@config(.*)$": "<rootDir>/src/config$1",
+      "^@middlewares(.*)$": "<rootDir>/src/middlewares$1",
+      "^@services(.*)$": "<rootDir>/src/services$1",
+      "^@utils(.*)$": "<rootDir>/src/utils$1"
+    },
+    "testRegex": "(/src/.*)\\.(test|spec).js$",
+    "testPathIgnorePatterns": [
+      "\\index.js$",
+      "(/src/.*)\\.(validator|validation|config|index).js$"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*{js,jsx}",
+      "!src/**/index.js",
+      "!src/config/**",
+      "!src/**/*.validation.js",
+      "!src/**/*.validator.js",
+      "!src/utils/APIError/ErrorCode.*",
+      "!src/services/cache/**",
+      "!<rootDir>/node_modules/"
+    ],
+    "coverageReporters": [
+      "json",
+      "html",
+      "lcov",
+      "text",
+      "clover"
+    ],
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ]
+  }
+}
